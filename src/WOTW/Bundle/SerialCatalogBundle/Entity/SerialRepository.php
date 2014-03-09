@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class SerialRepository extends EntityRepository
 {
+    public function findAllByNewest()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.createdAt')
+            ->getQuery()
+            ;
+    }
 }

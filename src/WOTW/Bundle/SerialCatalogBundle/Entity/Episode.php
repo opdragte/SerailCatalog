@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Episode
  *
- * @ORM\Table(name="Episode")
+ * @ORM\Table(name="episode")
  * @ORM\Entity(repositoryClass="WOTW\Bundle\SerialCatalogBundle\Entity\EpisodeRepository")
  */
 class Episode

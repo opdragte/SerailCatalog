@@ -4,6 +4,7 @@ namespace WOTW\Bundle\SerialCatalogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Serial
@@ -28,6 +29,13 @@ class Serial
      * @ORM\Column(name="title", type="string", length=100)
      */
     private $title;
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="createdAt", type="datetime")
+     *
+     */
+    private $createdAt;
 
     /**
      * @var string
@@ -188,4 +196,37 @@ class Serial
     {
         return $this->actors;
     }
+
+    /**
+     * @param mixed $genre
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
 }
