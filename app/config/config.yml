@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -52,6 +52,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
@@ -83,7 +85,33 @@ knp_menu:
     templating: false
     default_renderer: twig
 
+#FOSUserBundle Config
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+
+    group:
+            group_class:   Application\Sonata\UserBundle\Entity\Group
+            group_manager: sonata.user.orm.group_manager
+
 #SonataBlockBundle Configuration
+sonata_admin:
+    title: SerialCatalog
+    templates:
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+    dashboard:
+            blocks:
+                # display a dashboard block
+                - { position: left, type: sonata.admin.block.admin_list }
+
+
+    
 sonata_block:
     default_contexts: [cms]
     blocks:

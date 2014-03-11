@@ -1,0 +1,18 @@
+#parameters:
+#    wotw_admin.example.class: WOTW\Bundle\AdminBundle\Example
+
+#services:
+#    wotw_admin.example:
+#        class: %wotw_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+services:
+    sonata.admin.serial:
+        class: WOTW\Bundle\AdminBundle\Admin\SerialAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Serial" }
+        arguments:
+            - ~
+            - WOTW\Bundle\SerialCatalogBundle\Entity\Serial
+            - ~
+        calls:
+            - [ setTranslationDomain, [WOTWSerialCatalogBundle]]
