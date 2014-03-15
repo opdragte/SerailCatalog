@@ -3,6 +3,7 @@
 namespace WOTW\Bundle\SerialCatalogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vlabs\MediaBundle\Annotation\Vlabs;
 
 /**
  * Episode
@@ -29,9 +30,14 @@ class Episode
     private $title;
 
     /**
-     * @var string
+     * @var VlabsFile
      *
-     * @ORM\Column(name="image", type="string", length=100)
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumns({
+     *    @ORM\JoinColumn(name="image", referencedColumnName="id")
+     * })
+     *
+     * @Vlabs\Media(identifier="image_entity", upload_dir="media/images")
      */
     private $image;
 
@@ -96,27 +102,45 @@ class Episode
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     * @return Episode
+     * @param \WOTW\Bundle\SerialCatalogBundle\Entity\Image $image
      */
     public function setImage($image)
     {
         $this->image = $image;
-
-        return $this;
     }
 
     /**
-     * Get image
-     *
-     * @return string 
+     * @return \WOTW\Bundle\SerialCatalogBundle\Entity\Image
      */
     public function getImage()
     {
         return $this->image;
     }
+
+
+
+//    /**
+//     * Set image
+//     *
+//     * @param string $image
+//     * @return Episode
+//     */
+//    public function setImage($image)
+//    {
+//        $this->image = $image;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get image
+//     *
+//     * @return string
+//     */
+//    public function getImage()
+//    {
+//        return $this->image;
+//    }
 
     /**
      * Set videoQuality

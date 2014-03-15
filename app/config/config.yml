@@ -70,6 +70,15 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+#Vlabs
+vlabs_media:
+    image_cache:
+        cache_dir: media/cache
+    mapping:
+        image_entity:
+            class: WOTW\Bundle\SerialCatalogBundle\Entity\Image
+
+
 #StofBundle Configuration
 stof_doctrine_extensions:
      default_locale: en_US

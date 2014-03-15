@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Vlabs\MediaBundle\VlabsMediaBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new WOTW\Bundle\SerialCatalogBundle\WOTWSerialCatalogBundle(),
             new WOTW\Bundle\AdminBundle\WOTWAdminBundle(),

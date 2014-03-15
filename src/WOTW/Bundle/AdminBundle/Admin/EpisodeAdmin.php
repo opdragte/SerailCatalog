@@ -10,7 +10,7 @@ class EpisodeAdmin extends Admin
     public function configureFormFields(FormMapper $formapper)
     {
         $formapper->add('title', 'text', array('label' => 'Название'))
-            ->add('image', 'text', array('label' => 'Картинка'))
+            ->add('image', 'vlabs_file', array('required' => false))
             ->add('videoQuality', 'text', array('label' => 'Качество видео'))
             ->add('audioQuality', 'text', array('label' => 'Качество аудио'))
             ->add('releaseDate', 'text', array('label' => 'Дата выхода'))
