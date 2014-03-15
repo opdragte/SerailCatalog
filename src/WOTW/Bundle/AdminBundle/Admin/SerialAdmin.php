@@ -21,8 +21,9 @@ class SerialAdmin extends Admin
         $formMapper->add('title', 'text', array('label' => 'Название'))
             ->add('description', 'text', array('label' => 'Описание'))
             ->add('releaseBegin', 'text', array('label' => 'Начало релиза'))
-            ->add('genre', 'entity', array('class' => 'WOTW\Bundle\SerialCatalogBundle\Entity\Genre'))
-            ->add('seasons', 'entity', array('class' => 'WOTW\Bundle\SerialCatalogBundle\Entity\Season'))
+            ->add('genre', 'entity', array('class' => 'WOTW\Bundle\SerialCatalogBundle\Entity\Genre',
+                                           'label' => 'Жанр'))
+//            ->add('seasons', 'entity', array('class' => 'WOTW\Bundle\SerialCatalogBundle\Entity\Season'))
             ->add('actors', 'text', array('label' => 'Актеры'))
         ;
     }

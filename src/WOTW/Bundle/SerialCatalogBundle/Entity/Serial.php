@@ -229,4 +229,8 @@ class Serial
         return $this->createdAt;
     }
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

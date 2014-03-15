@@ -16,3 +16,36 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [WOTWSerialCatalogBundle]]
+
+    sonata.admin.genre:
+         class: WOTW\Bundle\AdminBundle\Admin\GenreAdmin
+         tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Genre" }
+         arguments:
+            - ~
+            - WOTW\Bundle\SerialCatalogBundle\Entity\Genre
+            - ~
+         calls:
+            - [ setTranslationDomain, [WOTWSerialCatalogBundle]]
+
+    sonata.admin.season:
+         class: WOTW\Bundle\AdminBundle\Admin\SeasonAdmin
+         tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Season" }
+         arguments:
+            - ~
+            - WOTW\Bundle\SerialCatalogBundle\Entity\Season
+            - ~
+         calls:
+            - [ setTranslationDomain, [WOTWSerialCatalogBundle]]
+
+    sonata.admin.episode:
+         class: WOTW\Bundle\AdminBundle\Admin\EpisodeAdmin
+         tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Episode" }
+         arguments:
+            - ~
+            - WOTW\Bundle\SerialCatalogBundle\Entity\Episode
+            - ~
+         calls:
+            - [ setTranslationDomain, [WOTWSerialCatalogBundle]]

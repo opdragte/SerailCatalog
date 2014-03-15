@@ -183,4 +183,9 @@ class Season
     {
         return $this->serial;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

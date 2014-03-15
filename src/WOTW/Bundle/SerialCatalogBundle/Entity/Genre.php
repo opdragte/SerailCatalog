@@ -93,4 +93,9 @@ class Genre
     {
         return $this->serials;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }
